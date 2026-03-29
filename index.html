@@ -397,10 +397,16 @@ nav{
   text-transform:uppercase;
   transition:border-color 0.3s,color 0.3s,background 0.3s,transform 0.3s;
 }
-.project-link:hover{
+.project-link.github-link:hover{
   color:var(--lime);
   border-color:rgba(200,255,0,0.45);
   background:rgba(200,255,0,0.08);
+  transform:translateY(-1px);
+}
+.project-link.demo-link:hover{
+  color:#6aa8ff;
+  border-color:rgba(106,168,255,0.45);
+  background:rgba(106,168,255,0.1);
   transform:translateY(-1px);
 }
 .proj-num{
@@ -430,7 +436,7 @@ nav{
   position:relative;z-index:1;
   transition:transform 0.3s,color 0.3s;
 }
-.project-link:hover .proj-arrow{transform:rotate(-45deg);color:var(--lime)}
+.project-link:hover .proj-arrow{transform:rotate(-45deg);color:currentColor}
 .proj-desc{
   grid-column:2;
   font-size:0.82rem;line-height:1.8;color:var(--muted);
@@ -803,7 +809,7 @@ nav{
           <div class="proj-meta">
             <span class="proj-tag">Full Stack</span>
             <span class="proj-tag">API</span>
-            <span class="proj-year">2024</span>
+            <span class="proj-year">2026</span>
           </div>
           <div class="proj-desc">
             A complete expense management system with category breakdowns, monthly summaries, and an intuitive dashboard. Full CRUD API backend with persistent SQLite storage and a clean HTML/CSS/JS frontend.
@@ -818,7 +824,8 @@ nav{
         </div>
       </a>
       <div class="project-actions">
-        <a href="https://github.com/sashank33v/ExpenSOS" target="_blank" class="project-link">GitHub <span class="proj-arrow">↗</span></a>
+        <a href="https://github.com/sashank33v/ExpenSOS" target="_blank" class="project-link github-link">GitHub <span class="proj-arrow">↗</span></a>
+        <a href="https://github.com/sashank33v/ExpenSOS" target="_blank" class="project-link demo-link">Live Demo <span class="proj-arrow">↗</span></a>
       </div>
     </div>
     <div class="project-card">
@@ -845,8 +852,8 @@ nav{
         </div>
       </a>
       <div class="project-actions">
-        <a href="https://github.com/sashank33v/CodeBot" target="_blank" class="project-link">GitHub <span class="proj-arrow">↗</span></a>
-        <a href="https://codebot-review.onrender.com" target="_blank" class="project-link">Live Demo <span class="proj-arrow">↗</span></a>
+        <a href="https://github.com/sashank33v/CodeBot" target="_blank" class="project-link github-link">GitHub <span class="proj-arrow">↗</span></a>
+        <a href="https://codebot-review.onrender.com" target="_blank" class="project-link demo-link">Live Demo <span class="proj-arrow">↗</span></a>
       </div>
     </div>
     <div class="project-card">
@@ -875,8 +882,8 @@ nav{
         </div>
       </a>
       <div class="project-actions">
-        <a href="https://github.com/sashank33v" target="_blank" class="project-link">GitHub <span class="proj-arrow">↗</span></a>
-        <a href="https://vaidyadrishti.24102002.xyz" target="_blank" class="project-link">Live Demo <span class="proj-arrow">↗</span></a>
+        <a href="https://github.com/sashank33v" target="_blank" class="project-link github-link">GitHub <span class="proj-arrow">↗</span></a>
+        <a href="https://vaidyadrishti.24102002.xyz" target="_blank" class="project-link demo-link">Live Demo <span class="proj-arrow">↗</span></a>
       </div>
     </div>
   </div>
