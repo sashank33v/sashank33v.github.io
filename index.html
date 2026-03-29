@@ -356,11 +356,16 @@ nav{
   margin-bottom:5rem;
 }
 .projects-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,0.07)}
-.project-item{
-  display:grid;grid-template-columns:60px 1fr auto;
+.project-card{
+  display:grid;grid-template-columns:1fr auto;
   align-items:center;gap:2rem;
   padding:2.5rem 0;
   border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.project-item{
+  display:grid;grid-template-columns:60px 1fr;
+  align-items:center;gap:2rem;
+  min-width:0;
   text-decoration:none;color:inherit;
   position:relative;overflow:hidden;
   transition:padding-left 0.4s cubic-bezier(0.16,1,0.3,1);
@@ -376,6 +381,28 @@ nav{
 }
 .project-item:hover::before{transform:scaleX(1)}
 .project-item:hover{padding-left:1.5rem}
+.project-actions{
+  display:flex;align-items:center;gap:0.75rem;
+  position:relative;z-index:1;
+}
+.project-link{
+  display:inline-flex;align-items:center;gap:0.45rem;
+  padding:0.7rem 1rem;
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:999px;
+  color:var(--muted);
+  text-decoration:none;
+  font-size:0.68rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  transition:border-color 0.3s,color 0.3s,background 0.3s,transform 0.3s;
+}
+.project-link:hover{
+  color:var(--lime);
+  border-color:rgba(200,255,0,0.45);
+  background:rgba(200,255,0,0.08);
+  transform:translateY(-1px);
+}
 .proj-num{
   font-family:var(--ff-mono);font-size:0.7rem;
   color:var(--muted);position:relative;z-index:1;
@@ -399,11 +426,11 @@ nav{
 }
 .proj-year{font-size:0.7rem;color:var(--muted);font-family:var(--ff-mono)}
 .proj-arrow{
-  font-size:1.5rem;color:var(--muted);
+  font-size:1rem;color:currentColor;
   position:relative;z-index:1;
   transition:transform 0.3s,color 0.3s;
 }
-.project-item:hover .proj-arrow{transform:rotate(-45deg);color:var(--lime)}
+.project-link:hover .proj-arrow{transform:rotate(-45deg);color:var(--lime)}
 .proj-desc{
   grid-column:2;
   font-size:0.82rem;line-height:1.8;color:var(--muted);
@@ -569,7 +596,9 @@ nav{
   .skill-row{grid-template-columns:1fr}
   .skill-row-label{border-right:none;border-bottom:1px solid var(--border);padding:1rem 0}
   .skill-row-tags{padding:1rem 0}
-  .project-item{grid-template-columns:40px 1fr auto}
+  .project-card{grid-template-columns:1fr;align-items:flex-start}
+  .project-item{grid-template-columns:40px 1fr}
+  .project-actions{margin-left:40px;flex-wrap:wrap}
   .exp-item{grid-template-columns:1fr}
   .exp-date{padding-top:0}
   .edu-grid{grid-template-columns:1fr}
@@ -766,77 +795,90 @@ nav{
     </a>
   </div>
   <div class="projects-list reveal">
-    <a href="https://github.com/sashank33v" target="_blank" class="project-item">
-      <div class="proj-num">01</div>
-      <div class="proj-info">
-        <div class="proj-name">Daily Expense Tracker</div>
-        <div class="proj-meta">
-          <span class="proj-tag">Full Stack</span>
-          <span class="proj-tag">API</span>
-          <span class="proj-year">2024</span>
+    <div class="project-card">
+      <a href="https://github.com/sashank33v" target="_blank" class="project-item">
+        <div class="proj-num">01</div>
+        <div class="proj-info">
+          <div class="proj-name">Daily Expense Tracker</div>
+          <div class="proj-meta">
+            <span class="proj-tag">Full Stack</span>
+            <span class="proj-tag">API</span>
+            <span class="proj-year">2024</span>
+          </div>
+          <div class="proj-desc">
+            A complete expense management system with category breakdowns, monthly summaries, and an intuitive dashboard. Full CRUD API backend with persistent SQLite storage and a clean HTML/CSS/JS frontend.
+          </div>
+          <div class="proj-stack">
+            <span class="proj-badge">Python</span>
+            <span class="proj-badge">Flask</span>
+            <span class="proj-badge">SQLite</span>
+            <span class="proj-badge">REST API</span>
+            <span class="proj-badge">HTML/CSS/JS</span>
+          </div>
         </div>
-        <div class="proj-desc">
-          A complete expense management system with category breakdowns, monthly summaries, and an intuitive dashboard. Full CRUD API backend with persistent SQLite storage and a clean HTML/CSS/JS frontend.
-        </div>
-        <div class="proj-stack">
-          <span class="proj-badge">Python</span>
-          <span class="proj-badge">Flask</span>
-          <span class="proj-badge">SQLite</span>
-          <span class="proj-badge">REST API</span>
-          <span class="proj-badge">HTML/CSS/JS</span>
-        </div>
+      </a>
+      <div class="project-actions">
+        <a href="https://github.com/sashank33v" target="_blank" class="project-link">GitHub <span class="proj-arrow">↗</span></a>
       </div>
-      <div class="proj-arrow">↗</div>
-    </a>
-        <a href="https://github.com/sashank33v/CodeBot" target="_blank" class="project-item">
-      <div class="proj-num">02</div>
-      <div class="proj-info">
-        <div class="proj-name">Code Review Bot</div>
-        <div class="proj-meta">
-          <span class="proj-tag">AI</span>
-          <span class="proj-tag">Developer Tool</span>
-          <span class="proj-year">2024</span>
+    </div>
+    <div class="project-card">
+      <a href="https://github.com/sashank33v/CodeBot" target="_blank" class="project-item">
+        <div class="proj-num">02</div>
+        <div class="proj-info">
+          <div class="proj-name">Code Review Bot</div>
+          <div class="proj-meta">
+            <span class="proj-tag">AI</span>
+            <span class="proj-tag">Developer Tool</span>
+            <span class="proj-year">2024</span>
+          </div>
+          <div class="proj-desc">
+            Code review assistant focused on concrete bug detection across Python, JavaScript, and C++. Uses static analyzers, runtime traceback capture, execution tracing, and an animated web UI deployed on Render.
+          </div>
+          <div class="proj-stack">
+            <span class="proj-badge">Python</span>
+            <span class="proj-badge">Flask</span>
+            <span class="proj-badge">Ollama</span>
+            <span class="proj-badge">TinyLlama</span>
+            <span class="proj-badge">JavaScript</span>
+            <span class="proj-badge">HTML/CSS</span>
+          </div>
         </div>
-        <div class="proj-desc">
-          Code review assistant focused on concrete bug detection across Python, JavaScript, and C++. Uses static analyzers, runtime traceback capture, execution tracing, and an animated web UI deployed on Render.
-        </div>
-        <div class="proj-stack">
-          <span class="proj-badge">Python</span>
-          <span class="proj-badge">Flask</span>
-          <span class="proj-badge">Ollama</span>
-          <span class="proj-badge">TinyLlama</span>
-          <span class="proj-badge">JavaScript</span>
-          <span class="proj-badge">HTML/CSS</span>
-        </div>
+      </a>
+      <div class="project-actions">
+        <a href="https://github.com/sashank33v/CodeBot" target="_blank" class="project-link">GitHub <span class="proj-arrow">↗</span></a>
+        <a href="https://codebot-review.onrender.com" target="_blank" class="project-link">Live Demo <span class="proj-arrow">↗</span></a>
       </div>
-      <div class="proj-arrow">↗</div>
-    </a>
-    <a href="https://codebot-review.onrender.com" target="_blank" class="proj-tag" style="background:rgba(200,255,0,0.15);border-color:rgba(200,255,0,0.4);color:var(--lime);text-decoration:none;cursor:pointer;">🔗 Live Demo</a>
-    <a href="https://vaidyadrishti.24102002.xyz" target="_blank" class="proj-tag" style="background:rgba(200,255,0,0.15);border-color:rgba(200,255,0,0.4);color:var(--lime);text-decoration:none;cursor:pointer;">🔗 Live Demo</a>
-      <div class="proj-num">03</div>
-      <div class="proj-info">
-        <div class="proj-name">VaidyaDrishti AI</div>
-        <div class="proj-meta">
-          <span class="proj-tag">AI / Vision</span>
-          <span class="proj-tag">Healthcare</span>
-          <span class="proj-tag">Deployed ↗</span>
-          <span class="proj-year">2024</span>
+    </div>
+    <div class="project-card">
+      <a href="https://github.com/sashank33v" target="_blank" class="project-item">
+        <div class="proj-num">03</div>
+        <div class="proj-info">
+          <div class="proj-name">VaidyaDrishti AI</div>
+          <div class="proj-meta">
+            <span class="proj-tag">AI / Vision</span>
+            <span class="proj-tag">Healthcare</span>
+            <span class="proj-tag">Deployed ↗</span>
+            <span class="proj-year">2024</span>
+          </div>
+          <div class="proj-desc">
+            Deployed full-stack medical prescription scanner — upload or capture a prescription image and instantly receive medication details, dosage, and scheduling. Integrates Groq Vision AI for structured data extraction with confidence scoring and smart medication validation. Zero external server storage, client-side image processing, teal-accented responsive UI with step-progress workflow.
+          </div>
+          <div class="proj-stack">
+            <span class="proj-badge">Python</span>
+            <span class="proj-badge">Flask</span>
+            <span class="proj-badge">Groq Vision AI</span>
+            <span class="proj-badge">React</span>
+            <span class="proj-badge">Vite</span>
+            <span class="proj-badge">Render</span>
+            <span class="proj-badge">Vercel</span>
+          </div>
         </div>
-        <div class="proj-desc">
-          Deployed full-stack medical prescription scanner — upload or capture a prescription image and instantly receive medication details, dosage, and scheduling. Integrates Groq Vision AI for structured data extraction with confidence scoring and smart medication validation. Zero external server storage, client-side image processing, teal-accented responsive UI with step-progress workflow.
-        </div>
-        <div class="proj-stack">
-          <span class="proj-badge">Python</span>
-          <span class="proj-badge">Flask</span>
-          <span class="proj-badge">Groq Vision AI</span>
-          <span class="proj-badge">React</span>
-          <span class="proj-badge">Vite</span>
-          <span class="proj-badge">Render</span>
-          <span class="proj-badge">Vercel</span>
-        </div>
+      </a>
+      <div class="project-actions">
+        <a href="https://github.com/sashank33v" target="_blank" class="project-link">GitHub <span class="proj-arrow">↗</span></a>
+        <a href="https://vaidyadrishti.24102002.xyz" target="_blank" class="project-link">Live Demo <span class="proj-arrow">↗</span></a>
       </div>
-      <div class="proj-arrow">↗</div>
-    </a>
+    </div>
   </div>
 </section>
 
